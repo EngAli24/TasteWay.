@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تتبع طلبك</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <ul class="icon-list">
+      <li class="icon-item"><a href="home.html">🏠</a></li>
+      <li class="icon-item"><a href="profile.html">👤</a></li>
+    </ul>
+  </div>
+  <div class="navbar-logo">
+    <span class="logo-text">TasteWay</span>
+    <span class="logo-icon">▶</span>
+  </div>
+</header>
+
+<main class="track-wrapper">
+  <section class="track-card">
+    <h1 class="track-title">تتبع طلبك</h1>
+    <p class="track-id" id="trackOrderId"></p>
+    <p class="track-restaurant" id="trackRestaurant"></p>
+    <p class="track-total" id="trackTotal"></p>
+
+    <ul class="track-steps">
+      <li data-step="1">
+        <span class="track-step-title">تم استلام الطلب</span>
+        <span class="track-step-desc">تم إرسال طلبك إلى المطعم</span>
+      </li>
+      <li data-step="2">
+        <span class="track-step-title">جاري التحضير</span>
+        <span class="track-step-desc">المطعم يقوم بتحضير طلبك الآن</span>
+      </li>
+      <li data-step="3">
+        <span class="track-step-title">في الطريق إليك</span>
+        <span class="track-step-desc">طلبك مع الكابتن وفي الطريق</span>
+      </li>
+      <li data-step="4">
+        <span class="track-step-title">تم التوصيل</span>
+        <span class="track-step-desc">تم تسليم الطلب بنجاح</span>
+      </li>
+    </ul>
+
+    <div class="track-actions">
+      <button id="advanceStatusBtn" class="primary-btn">تحديث حالة الطلب</button>
+      <button id="confirmReceiveBtn" class="primary-btn track-confirm-btn">استلام الطلب</button>
+    </div>
+
+    <p id="trackStatusText" class="track-status-text"></p>
+
+    <div class="track-back-home">
+      <a href="home.html">العودة للرئيسية</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>TasteWay 2025 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="../javascript/order-track.js"></script>
+</body>
+</html>

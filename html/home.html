@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>TasteWay - الرئيسية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <ul class="icon-list">
+      <li class="icon-item">
+        <a href="home.html">🏠</a>
+      </li>
+      <li class="icon-item">
+
+        <a href="profile.html">👤</a>
+     </li>
+      <li class="icon-item cart-icon">
+  <a href="cart.html">🛒</a>
+  <span id="cartCount">0</span>
+</li>
+
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-logo">
+    <span class="logo-text">TasteWay</span>
+    <span class="logo-icon">▶</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>مرحباً ، اختر مطعمك</h1>
+    <input type="text" id="searchInput" placeholder="ابحث عن مطعم أو وجبة">
+  </div>
+</section>
+
+<nav class="tabs">
+  <a href="#" class="active" data-tab="restaurants">مطاعم</a>
+  <a href="#" data-tab="dishes">الأطباق</a>
+  <a href="#" data-tab="meals">الوجبات</a>
+  <a href="#" data-tab="offers">العروض</a>
+</nav>
+
+<section class="cards" id="dynamicContent"></section>
+
+<footer class="footer">
+  <p>TasteWay 2025 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="../javascript/cart.js"></script>
+<script src="../javascript/home-tabs.js"></script>
+<script src="../javascript/home-search.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const profileLinks = document.querySelectorAll('a[href="profile.html"]');
+
+  profileLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      const role = localStorage.getItem("userRole");
+
+      if (role === "admin-pizzaking") {
+        e.preventDefault();
+        window.location.href = "admin-pizzaking.html";
+      }
+
+      if (role === "admin-baraka") {
+        e.preventDefault();
+        window.location.href = "admin-baraka.html";
+      }
+    });
+  });
+});
+
+</script>
+</body>
+</html>
+
+
+</body>
+
+</html>
