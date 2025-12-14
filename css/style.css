@@ -1,3 +1,8 @@
+:root {
+  --accent-orange: #f97316;
+}
+
+/*  */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -724,7 +729,7 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .order-main {
     flex-direction: column;
     align-items: flex-start;
@@ -733,7 +738,7 @@ body {
   .order-side {
     align-items: flex-start;
   }
-}
+} */
 .last-order-box {
   margin-bottom: 16px;
   padding: 12px 14px;
@@ -966,5 +971,335 @@ body {
 }
 
 
+
+
+/*  */
+
+/* =================================================
+   GLOBAL SAFE BASE (NO TEXT BLUR)
+================================================= */
+.card,
+button,
+a,
+.menu-list div,
+#dynamicContent > div,
+#restaurantItems > div {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* =================================================
+   UNIVERSAL CARD TARGETS (ALL PAGES)
+================================================= */
+.card,
+.cards .card,
+.menu-list .card,
+.menu-list > div,
+#dynamicContent > div,
+#restaurantItems > div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* =================================================
+   IMAGES INSIDE CARDS (HOVER IMAGE ONLY)
+================================================= */
+.card img,
+.menu-list img,
+#dynamicContent img,
+#restaurantItems img {
+  transition: transform .45s ease;
+}
+
+/* IMAGE ZOOM – SAFE */
+.card:hover img,
+.menu-list .card:hover img,
+#dynamicContent > div:hover img,
+#restaurantItems > div:hover img {
+  transform: scale(1.12);
+}
+
+/* =================================================
+   CARD HOVER (MOVE ONLY – NO SCALE)
+================================================= */
+.card:hover,
+.menu-list .card:hover,
+#dynamicContent > div:hover,
+#restaurantItems > div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.25);
+}
+
+/* =================================================
+   SMART HOVER – BUTTONS
+================================================= */
+button,
+.primary-btn,
+.add-to-cart,
+.admin-action-btn {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+button:hover,
+.primary-btn:hover,
+.add-to-cart:hover,
+.admin-action-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* =================================================
+   SMART HOVER – LINKS
+================================================= */
+a:hover {
+  transform: translateY(-2px);
+}
+
+/* =================================================
+   SECTION ANIMATIONS
+================================================= */
+
+/* HERO */
+.hero {
+  animation: heroIn .7s ease-out both;
+}
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESTAURANT / MENU SECTIONS */
+.cards,
+.menu-list,
+#restaurantItems {
+  animation: sectionFade .6s ease-out both;
+}
+@keyframes sectionFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* TABLES / ADMIN */
+table,
+.admin-menu-table {
+  animation: slideSide .6s ease-out both;
+}
+@keyframes slideSide {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* =================================================
+   PAGE TRANSITION (SAFE)
+================================================= */
+body {
+  animation: pageFade .5s ease-out both;
+}
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =================================================
+   DARK MODE SAFE GLOW
+================================================= */
+body.dark .card:hover,
+body.dark #dynamicContent > div:hover,
+body.dark #restaurantItems > div:hover {
+  box-shadow: 0 20px 60px rgba(37,99,235,.35);
+}
+
+/* =================================================
+   MOBILE OPTIMIZATION (LIGHT EFFECT)
+================================================= */
+@media (max-width: 768px) {
+
+  /* Less movement */
+  .card:hover,
+  #dynamicContent > div:hover,
+  #restaurantItems > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  }
+
+  /* Smaller image zoom */
+  .card:hover img,
+  #dynamicContent > div:hover img,
+  #restaurantItems > div:hover img {
+    transform: scale(1.06);
+  }
+
+  /* Buttons lighter */
+  button:hover,
+  .primary-btn:hover {
+    transform: scale(1.03);
+  }
+}
+
+/* =================================================
+   ACCESSIBILITY
+================================================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* =================================================
+   NAVBAR ICONS – SOFT HOVER
+================================================= */
+.navbar .icon-item,
+.navbar .icon-item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform .2s ease,
+    opacity .2s ease,
+    filter .2s ease;
+}
+
+/* Hover effect */
+.navbar .icon-item:hover,
+.navbar .icon-item a:hover {
+  transform: translateY(-2px);
+  opacity: .85;
+  filter: brightness(1.1);
+}
+
+/* Active click */
+.navbar .icon-item:active,
+.navbar .icon-item a:active {
+  transform: scale(.95);
+}
+
+/* Dark mode tweak */
+body.dark .navbar .icon-item:hover,
+body.dark .navbar .icon-item a:hover {
+  filter: brightness(1.2);
+}
+button:hover,
+.primary-btn:hover,
+.add-to-cart:hover,
+.admin-action-btn:hover,
+.cart-confirm-btn:hover {
+  background-color: var(--accent-orange);
+  color: #fff;
+}
+/* =================================================
+   DARK MODE – FULL SUPPORT
+================================================= */
+body.dark {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+/* Navbar */
+body.dark .navbar {
+  background-color: #020617;
+  border-bottom-color: #1e293b;
+}
+
+/* Footer */
+body.dark .footer {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+/* Cards (all types) */
+body.dark .card,
+body.dark .auth-card,
+body.dark .menu-row-card,
+body.dark .cart-item-card,
+body.dark .cart-summary,
+body.dark .profile-card,
+body.dark .order-card,
+body.dark .track-card,
+body.dark .cart-contact,
+body.dark .restaurant-header-box,
+body.dark .last-order-box {
+  background-color: #020617;
+  border: 1px solid #1e293b;
+  box-shadow: 0 8px 22px rgba(0,0,0,.45);
+}
+
+/* Inputs */
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background-color: #020617;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+
+/* Tabs */
+body.dark .tabs,
+body.dark .restaurant-tabs {
+  background-color: #020617;
+}
+
+body.dark .restaurant-tab {
+  background-color: #020617;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+body.dark .restaurant-tab.active {
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: #fff;
+}
+
+/* Tables */
+body.dark table th {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+body.dark table td {
+  border-bottom-color: #1e293b;
+}
+
+/* Muted text */
+body.dark p,
+body.dark .menu-row-desc,
+body.dark .cart-item-restaurant,
+body.dark .order-note,
+body.dark .track-step-desc {
+  color: #94a3b8;
+}
+  
+
+/*  */
+body.dark button,
+body.dark .primary-btn,
+body.dark .add-to-cart,
+body.dark .admin-action-btn,
+body.dark .cart-confirm-btn,
+body.dark .order-repeat-btn,
+body.dark .track-confirm-btn {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+body.dark button:not([class]),
+body.dark button[style="background: none"],
+body.dark button[style="background:none"] {
+  background-color: #1e293b;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+body.dark button:hover,
+body.dark .primary-btn:hover,
+body.dark .add-to-cart:hover,
+body.dark .admin-action-btn:hover,
+body.dark .cart-confirm-btn:hover,
+body.dark .order-repeat-btn:hover,
+body.dark .track-confirm-btn:hover {
+  background-color: var(--accent-orange);
+  color: #fff;
+}
 
 
