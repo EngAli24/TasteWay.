@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الملف الشخصي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <ul class="icon-list">
+      <li class="icon-item"><a href="home.html">🏠</a></li>
+      <li class="icon-item"><a href="profile.html">👤</a></li>
+      <li class="icon-item cart-icon">
+        <a href="cart.html">🛒</a>
+        <span id="cartCount">0</span>
+      </li>
+      <li class="icon-item" id="themeToggle">🌙</li>
+
+    </ul>
+  </div>
+  <div class="navbar-logo">
+    <span class="logo-text">La Mesa</span>
+    <span class="logo-icon">▶</span>
+  </div>
+</header>
+
+<main class="page-wrapper">
+  <section class="auth-card">
+
+    <div class="profile-header" style="text-align:center;margin-bottom:18px;">
+      <div class="profile-avatar">👤</div>
+
+      <div style="display:flex;justify-content:center;align-items:center;gap:10px;">
+        <h2 id="profileNameDisplay"></h2>
+        <button id="editProfileBtn" class="primary-btn" style="width:auto;padding:6px 12px;font-size:13px;">
+          تعديل
+        </button>
+      </div>
+
+      <p id="viewEmail"></p>
+      <p id="viewPhone"></p>
+      <p id="viewAddress"></p>
+    </div>
+
+    <div id="lastOrderBox" class="last-order-box" style="display:none;">
+      <h3>آخر طلب</h3>
+      <p id="lastOrderSummary"></p>
+      <p id="lastOrderDate"></p>
+      <p id="ordersCount"></p>
+    </div>
+
+    <section class="orders-section" id="ordersSection" style="display:none;">
+      <h2 class="orders-title">سجل الطلبات</h2>
+      <div class="orders-list" id="ordersList"></div>
+    </section>
+
+    <form id="profileForm" class="auth-form" style="display:none;">
+
+      <div class="form-group label-top">
+        <label>الاسم الكامل</label>
+        <input type="text" id="profileName">
+      </div>
+
+      <div class="form-group label-top">
+        <label>البريد الإلكتروني</label>
+        <input type="email" id="profileEmail">
+      </div>
+
+      <div class="form-group label-top">
+        <label>رقم الهاتف</label>
+        <input type="tel" id="profilePhone">
+      </div>
+
+      <div class="form-group label-top">
+        <label>العنوان</label>
+        <input type="text" id="profileAddress">
+      </div>
+
+      <p id="profileError" class="error-message"></p>
+      <p id="profileSuccess" class="error-message" style="color:#16a34a;"></p>
+
+      <button type="submit" class="primary-btn">حفظ</button>
+      <button type="button" id="cancelEditBtn" class="primary-btn" style="margin-top:8px;background-color:#6b7280;">
+        إلغاء
+      </button>
+    </form>
+
+    <button id="logoutBtn" class="primary-btn" style="margin-top:12px;background-color:#ef4444;">
+      تسجيل الخروج
+    </button>
+
+  </section>
+</main>
+
+<footer class="footer">
+  <p>La Mesa 2024 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="../javascript/profile.js"></script>
+<script src="../javascript/cart.js"></script>
+<script src="../javascript/dark_mode.js"></script>>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>طلبات التوصيل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <ul class="icon-list">
+      <li class="icon-item"><a href="delivery.html">🚚</a></li>
+      <li class="icon-item">
+        <a href="#" onclick="deliveryLogout()">🚪</a>
+      </li>
+      <li class="icon-item" id="themeToggle">🌙</li>
+
+    </ul>
+  </div>
+  <div class="navbar-logo">
+    <span class="logo-text">مندوب التوصيل</span>
+    <span class="logo-icon">▶</span>
+  </div>
+</header>
+
+<main class="profile-wrapper">
+  <section class="profile-card">
+    <h1 style="text-align:right;margin-bottom:12px;">طلبات التوصيل</h1>
+    <div id="deliveryOrders"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>TasteWay 2025 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="../javascript/delivery.js"></script>
+<script src="../javascript/dark_mode.js"></script>>
+
+<script>
+function deliveryLogout() {
+  localStorage.removeItem("userRole");
+  window.location.href = "../index.html";
+}
+</script>
+</body>
+</html>

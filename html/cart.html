@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>سلة مشترياتك</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <ul class="icon-list">
+      <li class="icon-item">
+        <a href="home.html">🏠</a>
+      </li>
+      <li class="icon-item">
+        <a href="profile.html">👤</a>
+      </li>
+      <li class="icon-item cart-icon">
+        <a href="cart.html">🛒</a>
+        <span id="cartCount">0</span>
+      </li>
+      <li class="icon-item" id="themeToggle">🌙</li>
+
+    </ul>
+  </div>
+  <div class="navbar-logo">
+    <span class="logo-text">TasteWay</span>
+    <span class="logo-icon">▶</span>
+  </div>
+</header>
+
+<main class="cart-wrapper">
+  <h1 class="cart-title">سلة مشترياتك</h1>
+
+  <section id="cartItems" class="cart-list"></section>
+
+  <section class="cart-contact">
+    <h3>بيانات التوصيل</h3>
+    <div class="form-group label-top">
+      <label for="orderPhone">رقم الهاتف</label>
+      <input type="tel" id="orderPhone" placeholder="رقم الهاتف للتواصل">
+    </div>
+    <div class="form-group label-top">
+      <label for="orderAddress">العنوان</label>
+      <input type="text" id="orderAddress" placeholder="العنوان بالتفصيل">
+    </div>
+  </section>
+
+  <section class="cart-summary" id="cartSummary">
+    <div class="cart-summary-row">
+      <span>المجموع الفرعي:</span>
+      <span id="subtotalValue">0 ج.م</span>
+    </div>
+    <div class="cart-summary-row">
+      <span>رسوم التوصيل:</span>
+      <span id="deliveryValue">0 ج.م</span>
+    </div>
+    <div class="cart-summary-row total">
+      <span><strong>الإجمالي:</strong></span>
+      <span id="totalValue"><strong>0 ج.م</strong></span>
+    </div>
+
+    <div class="cart-payment">
+      <label class="cart-radio">
+        <input type="radio" name="payment" value="cod" checked>
+        <span>الدفع عند الاستلام</span>
+      </label>
+      <label class="cart-radio">
+        <input type="radio" name="payment" value="card">
+        <span>بطاقة ائتمان</span>
+      </label>
+    </div>
+
+    <div id="cardDetails" class="card-details" style="display:none;">
+      <div class="form-group label-top">
+        <label for="cardName">اسم صاحب البطاقة</label>
+        <input type="text" id="cardName" placeholder="الاسم كما هو على البطاقة">
+      </div>
+      <div class="form-group label-top">
+        <label for="cardNumber">رقم البطاقة</label>
+        <input type="text" id="cardNumber" placeholder="رقم البطاقة">
+      </div>
+      <div class="card-details-row">
+        <div class="form-group label-top">
+          <label for="cardExpiry">تاريخ الانتهاء</label>
+          <input type="text" id="cardExpiry" placeholder="MM/YY">
+        </div>
+        <div class="form-group label-top">
+          <label for="cardCvv">CVV</label>
+          <input type="text" id="cardCvv" placeholder="CVV">
+        </div>
+      </div>
+    </div>
+
+    <button id="confirmOrder" class="cart-confirm-btn">تأكيد الطلب</button>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>TasteWay 2025 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="../javascript/cart.js"></script>
+<script src="../javascript/dark_mode.js"></script>>
+
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const profileLinks = document.querySelectorAll('a[href="profile.html"]');
+
+  profileLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      const role = localStorage.getItem("userRole");
+
+      if (role === "admin-pizzaking") {
+        e.preventDefault();
+        window.location.href = "admin-pizzaking.html";
+      }
+
+      if (role === "admin-baraka") {
+        e.preventDefault();
+        window.location.href = "admin-baraka.html";
+      }
+    });
+  });
+});
+
+</script>
+
+</body>
+</html>

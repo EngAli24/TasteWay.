@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>أدمن Pizza King</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-left">
+    <ul class="icon-list">
+      <li class="icon-item"><a href="home.html">🏠</a></li>
+      <li class="icon-item"><a href="admin-pizzaking.html">👤</a></li>
+      <li class="icon-item cart-icon">
+        <a href="cart.html">🛒</a>
+        <span id="cartCount">0</span>
+      </li>
+      <li class="icon-item" id="themeToggle">🌙</li>
+
+    </ul>
+  </div>
+  <div class="navbar-logo">
+    <span class="logo-text">Pizza King Admin</span>
+    <span class="logo-icon">▶</span>
+  </div>
+</header>
+
+<main class="profile-wrapper">
+  <section class="profile-card">
+    <h1 style="text-align:right;margin-bottom:10px;">إدارة منيو Pizza King</h1>
+    <p style="text-align:right;font-size:13px;color:#6b7280;margin-bottom:16px;">
+      عدل المنيو كما يظهر للعميل في المطعم.
+    </p>
+
+    <div class="restaurant-tabs">
+      <button class="restaurant-tab active" data-cat="pizza">بيتزا</button>
+      <button class="restaurant-tab" data-cat="meals">وجبات</button>
+      <button class="restaurant-tab" data-cat="offers">عروض</button>
+    </div>
+
+    <h2 class="admin-subtitle">الأصناف في القسم الحالي</h2>
+    <table class="admin-menu-table">
+      <thead>
+        <tr>
+          <th>الاسم</th>
+          <th>الوصف</th>
+          <th>السعر (ج.م)</th>
+          <th>إجراءات</th>
+        </tr>
+      </thead>
+      <tbody id="adminMenuBody"></tbody>
+    </table>
+
+    <h2 class="admin-subtitle">إضافة / تعديل صنف</h2>
+    <form id="adminItemForm" class="auth-form" style="margin-top:6px;">
+      <input type="hidden" id="itemIndex" value="-1">
+
+      <div class="form-group label-top">
+        <label for="itemName">اسم الصنف</label>
+        <input type="text" id="itemName">
+      </div>
+
+      <div class="form-group label-top">
+        <label for="itemDesc">الوصف</label>
+        <input type="text" id="itemDesc">
+      </div>
+
+      <div class="form-group label-top">
+        <label for="itemPrice">السعر (ج.م)</label>
+        <input type="number" id="itemPrice" min="0">
+      </div>
+
+      <div class="form-group label-top">
+        <label for="itemCategory">القسم</label>
+        <select id="itemCategory">
+          <option value="pizza">بيتزا</option>
+          <option value="meals">وجبات</option>
+          <option value="offers">عروض</option>
+        </select>
+      </div>
+
+      <p id="adminError" class="error-message"></p>
+      <p id="adminSuccess" class="error-message" style="color:#16a34a;"></p>
+
+      <button type="submit" class="primary-btn">حفظ الصنف</button>
+    </form>
+
+    <button
+  class="primary-btn"
+  style="margin-top:12px;background-color:#ef4444;"
+  onclick="appLogout()"
+>
+  تسجيل الخروج من الأدمن
+</button>
+
+  </section>
+</main>
+
+<footer class="footer">
+  <p>TasteWay 2025 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="../javascript/cart.js"></script>
+<script src="../javascript/admin-pizzaking.js"></script>
+<script src="../javascript/dark_mode.js"></script>>
+
+<script>
+window.appLogout = function () {
+  try {
+    localStorage.removeItem("user");
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("cart");
+    localStorage.removeItem("orders");
+  } catch (e) {}
+
+  window.location.href = "../index.html";
+};
+</script>
+</body>
+</html>
